@@ -1,4 +1,3 @@
-import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
@@ -49,6 +48,10 @@ const config: Config = {
   themeConfig: {
     // Social sharing image (update when you have a proper OG image)
     image: 'img/social-card.jpg',
+    metadata: [
+      {name: 'description', content: 'Gather & Glow is a Zurich-based, woman-owned event studio delivering intimate gatherings with modern styling.'},
+      {name: 'keywords', content: 'Gather and Glow, Zurich events, bespoke tablescapes, charcuterie boards, seasonal gatherings'},
+    ],
    colorMode: {
   defaultMode: 'light',
   respectPrefersColorScheme: false,
@@ -58,7 +61,7 @@ const config: Config = {
   title: 'Gather & Glow',
   logo: {
     alt: 'Gather & Glow Logo',
-    src: 'img/logo.svg',
+    src: 'img/gg_logo.svg',
   },
   items: [
     // LEFT SIDE OF LOGO
@@ -66,6 +69,7 @@ const config: Config = {
     { to: '/services', label: 'Services', position: 'left' },
 
     // RIGHT SIDE OF LOGO
+    { to: '/gallery', label: 'Gallery', position: 'right' },
     { to: '/about', label: 'About', position: 'right' },
     { to: '/contact', label: 'Contact', position: 'right' },
   ],
@@ -79,24 +83,22 @@ const config: Config = {
           items: [
             {label: 'Home', to: '/'},
             {label: 'Services', to: '/services'},
+            {label: 'Gallery', to: '/gallery'},
             {label: 'About', to: '/about'},
             {label: 'Contact', to: '/contact'},
+            {label: 'Privacy & GDPR', to: '/privacy'},
           ],
         },
         {
           title: 'Connect',
           items: [
             // Replace with real links as they exist
-            {label: 'Email', href: 'mailto:hello@gatherandglow.ch'},
-            // {label: 'Instagram', href: 'https://instagram.com/...' },
+            {label: 'Email', href: 'mailto:info@gatherandglow.ch'},
+            {label: 'Instagram', href: 'https://instagram.com/gatherandglow.ch', rel: 'noreferrer noopener', target: '_blank'},
           ],
         },
       ],
-      copyright: `© ${new Date().getFullYear()} Gather & Glow. All rights reserved.`,
-    },
-    prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      copyright: `© ${new Date().getFullYear()} Gather & Glow. All rights reserved. Made with love by <a href="https://doulab.net" target="_blank" rel="noreferrer">Doulab</a> in Switzerland.`,
     },
   } satisfies Preset.ThemeConfig,
 };

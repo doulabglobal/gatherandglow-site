@@ -2,6 +2,15 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import HeroBanner from '../components/HeroBanner';
+import Seo from '../components/Seo';
+
+const aboutHeroImages = [
+  '/img/hero_about_01.jpg',
+  '/img/hero_about_02.jpg',
+  '/img/hero_about_03.jpg',
+  '/img/hero_about_04.jpg',
+  '/img/hero_about_05.jpg',
+];
 
 const founders = [
   {
@@ -29,10 +38,10 @@ const founders = [
 
 function AboutIntro() {
   return (
-    <section className="margin-vert--xl">
+    <section className="margin-vert--xl about-hero">
       <div className="container">
         <div className="row">
-          <div className="col col--8 col--offset-2">
+          <div className="col col--6">
             <h1>About Gather &amp; Glow</h1>
             <p style={{fontSize: '1.05rem', lineHeight: 1.8}}>
               We create gatherings that glow - modern, timeless, and full of heart.
@@ -46,6 +55,13 @@ function AboutIntro() {
               With a deep passion for connection, beauty, and memorable experiences, we decided to
               take a leap of faith - and so, Gather &amp; Glow was born.
             </p>
+          </div>
+          <div className="col col--6 about-hero__image">
+            <img
+              src="/img/about_about_GatherAndGlow.jpg"
+              alt="Gather & Glow founders working together"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
@@ -159,19 +175,30 @@ export default function AboutPage() {
       title="About - Gather & Glow"
       description="Learn more about Gather & Glow, a Zurich-based, woman-owned event studio founded by three women with over 15 years of experience in event management and hospitality."
     >
+      <Seo
+        title="About Gather & Glow"
+        description="Meet the women behind Gather & Glow — a Zurich studio combining hospitality expertise with heartfelt styling."
+        slug="/about"
+        image="/img/hero_about_01.jpg"
+        keywords={['about Gather & Glow', 'Zurich women-owned business', 'event stylists', 'founders']}
+      />
       <HeroBanner
         eyebrow="Our story"
         title="Gather & Glow was born from friendship, creativity, and countless candlelit nights."
         subtitle="We&apos;re three women turning heartfelt ideas into luminous gatherings across Zurich and beyond."
         cta={{label: 'Plan with us', to: '/contact'}}
         note="Woman-founded | 15+ years of hospitality experience"
-        backgroundImage="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80"
+        backgroundImages={aboutHeroImages}
       />
       <main>
         <AboutIntro />
+        <hr className="section-separator" />
         <ExperienceSection />
+        <hr className="section-separator" />
         <FoundersSection />
+        <hr className="section-separator" />
         <PhilosophySection />
+        <hr className="section-separator" />
         <AboutCTA />
       </main>
     </Layout>

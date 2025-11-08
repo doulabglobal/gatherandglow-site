@@ -2,6 +2,15 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import HeroBanner from '../components/HeroBanner';
+import Seo from '../components/Seo';
+
+const homeHeroImages = [
+  '/img/hero_index.jpg',
+  '/img/hero_index_02.jpg',
+  '/img/hero_index_03.jpg',
+  '/img/hero_index_04.jpg',
+  '/img/hero_index_05.jpg',
+];
 
 export default function Home() {
   return (
@@ -9,18 +18,26 @@ export default function Home() {
       title="Gather & Glow"
       description="Zurich-based, woman-owned event studio crafting modern, timeless gatherings."
     >
+      <Seo
+        title="Gather & Glow | Zurich Event Studio"
+        description="Gather & Glow crafts intimate, design-led gatherings in Zurich - charcuterie styling, seasonal bars, and bespoke tablescapes."
+        slug="/"
+        image="/img/hero_index.jpg"
+        preloadImage="/img/hero_index.jpg"
+        keywords={['Zurich event planner', 'Gather & Glow', 'tablescaping', 'charcuterie boards', 'seasonal events']}
+      />
       <HeroBanner
         eyebrow="Zurich | bespoke event studio"
         title="We create gatherings that glow - modern, timeless, and full of heart."
         subtitle="Gather & Glow is a woman-owned atelier crafting intimate, design-led celebrations, so you can simply enjoy the moment."
         cta={{label: 'Plan your gathering - effortlessly', to: '/contact'}}
         note="15+ years curating elevated moments"
-        backgroundImage="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80"
+        backgroundImages={homeHeroImages}
       />
 
       <main>
         {/* === SERVICES SECTION === */}
-        <section className="container margin-vert--xl">
+        <section className="container home-section">
           <h2 className="text--center">Our Services</h2>
           <p className="text--center">
             Discover the art of effortless gatherings. Our curated services bring a touch of
@@ -31,9 +48,10 @@ export default function Home() {
             <div className="col col--4">
               <div className="gg-card">
                 <img
-                  src="https://picsum.photos/400/280?random=2"
+                  src="/img/charcuterie_borard.jpg"
                   alt="Charcuterie Boards"
                   className="gg-card__img"
+                  loading="lazy"
                 />
                 <h3>Charcuterie Boards</h3>
                 <p>
@@ -49,9 +67,10 @@ export default function Home() {
             <div className="col col--4">
               <div className="gg-card">
                 <img
-                  src="https://picsum.photos/400/280?random=3"
+                  src="/img/seasonal_bar.jpg"
                   alt="Seasonal Bars & Stations"
                   className="gg-card__img"
+                  loading="lazy"
                 />
                 <h3>Seasonal Bars & Stations</h3>
                 <p>
@@ -67,9 +86,10 @@ export default function Home() {
             <div className="col col--4">
               <div className="gg-card">
                 <img
-                  src="https://picsum.photos/400/280?random=4"
+                  src="/img/tablescaping_home.jpg"
                   alt="Tablescaping at Home"
                   className="gg-card__img"
+                  loading="lazy"
                 />
                 <h3>Tablescaping at Home</h3>
                 <p>
@@ -84,8 +104,10 @@ export default function Home() {
           </div>
         </section>
 
+        <hr className="section-separator" />
+
         {/* === ABOUT SECTION === */}
-        <section className="container margin-vert--xl about-section">
+        <section className="container home-section about-section">
           <div className="about-inner">
             <div className="about-text">
               <h2>About Gather & Glow</h2>
@@ -106,15 +128,18 @@ export default function Home() {
             </div>
             <div className="about-image">
               <img
-                src="https://picsum.photos/600/450?blur=1&random=5"
+                src="/img/about_card.jpg"
                 alt="About Gather & Glow team"
+                loading="lazy"
               />
             </div>
           </div>
         </section>
 
+        <hr className="section-separator" />
+
         {/* === CTA SECTION === */}
-        <section className="hero hero--primary" style={{ background: '#f9fafb' }}>
+        <section className="cta-section">
           <div className="container text--center">
             <h2>Your next moment deserves to glow.</h2>
             <p>
@@ -130,5 +155,3 @@ export default function Home() {
     </Layout>
   );
 }
-
-

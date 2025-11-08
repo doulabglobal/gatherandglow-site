@@ -2,6 +2,15 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import HeroBanner from '../components/HeroBanner';
+import Seo from '../components/Seo';
+
+const servicesHeroImages = [
+  '/img/hero_services_01.jpg',
+  '/img/hero_services_02.jpg',
+  '/img/hero_services_03.jpg',
+  '/img/hero_services_04.jpg',
+  '/img/hero_services_05.jpg',
+];
 
 const services = [
   {
@@ -13,8 +22,7 @@ const services = [
       'Each board is tailored to your preferences and the mood of the occasion.',
     ],
     ideal: 'Small get-togethers, birthdays, baby showers, brunches, and intimate celebrations.',
-    image:
-      'https://images.unsplash.com/photo-1481839546006-3228c5bfa635?auto=format&fit=crop&w=1200&q=80',
+    image: '/img/charcueterie_board_services.jpg',
   },
   {
     title: 'Seasonal Bars & Stations',
@@ -25,8 +33,7 @@ const services = [
       'We design, style, and set up everything on site, so your guests can simply enjoy the experience.',
     ],
     ideal: 'Winter events, office gatherings, family celebrations, children\'s parties, and seasonal occasions.',
-    image:
-      'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80',
+    image: '/img/seasonal_bar_station.jpg',
   },
   {
     title: 'Tablescaping at Home',
@@ -37,8 +44,25 @@ const services = [
       'Whether it\'s an intimate dinner for two or a gathering with friends, we create an atmosphere that invites connection.',
     ],
     ideal: 'Intimate dinners, celebrations at home, anniversaries, and special moments with up to 12 guests.',
-    image:
-      'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80',
+    image: '/img/tablescaping_services.jpg',
+  },
+];
+
+const howSteps = [
+  {
+    title: '1. Share your idea',
+    copy: 'Tell us about your gathering - the occasion, date, guest count, and how you want it to feel.',
+    image: '/img/event_idea.jpg',
+  },
+  {
+    title: '2. We design the details',
+    copy: 'We curate a concept tailored to your space, style, and budget, and fine-tune it together with you.',
+    image: '/img/design_detail.jpg',
+  },
+  {
+    title: '3. Enjoy the glow',
+    copy: 'On the day itself, we style and set everything up - so you can simply welcome your guests and enjoy.',
+    image: '/img/enjoy_glow.jpg',
   },
 ];
 
@@ -94,19 +118,23 @@ function HowItWorks() {
             <p>We keep the process simple, so you can focus on what matters most: being present with your guests.</p>
           </div>
         </div>
-        <div className="row">
-          <div className="col col--4">
-            <h3>1. Share your idea</h3>
-            <p>Tell us about your gathering - the occasion, date, guest count, and how you want it to feel.</p>
-          </div>
-          <div className="col col--4">
-            <h3>2. We design the details</h3>
-            <p>We curate a concept tailored to your space, style, and budget, and fine-tune it together with you.</p>
-          </div>
-          <div className="col col--4">
-            <h3>3. Enjoy the glow</h3>
-            <p>On the day itself, we style and set everything up - so you can simply welcome your guests and enjoy.</p>
-          </div>
+        <div className="row how-grid">
+          {howSteps.map((step) => (
+            <div className="col col--4" key={step.title}>
+              <div className="gg-card gg-card--how">
+                <img
+                  src={step.image}
+                  alt={step.title}
+                  className="gg-card__img gg-card__img--how"
+                  loading="lazy"
+                />
+                <div className="gg-card__body">
+                  <h3>{step.title}</h3>
+                  <p>{step.copy}</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -140,17 +168,26 @@ export default function ServicesPage() {
       title="Services - Gather & Glow"
       description="Explore Gather & Glow's services: charcuterie boards, seasonal bars & stations, and tablescaping at home for intimate gatherings in Zurich and surroundings."
     >
+      <Seo
+        title="Services | Gather & Glow"
+        description="Discover Gather & Glow services: luxe charcuterie boards, seasonal beverage stations, and bespoke tablescaping in Zurich."
+        slug="/services"
+        image="/img/hero_services_01.jpg"
+        keywords={['Zurich services', 'charcuterie Zurich', 'tablescaping', 'event styling', 'seasonal bars']}
+      />
       <HeroBanner
         eyebrow="Services"
         title="From charcuterie spreads to full tablescapes, we curate gatherings that glow."
         subtitle="Choose a signature service or mix-and-match. Every detail is tailored to your guests, space, and story."
         cta={{label: 'Request a proposal', to: '/contact'}}
         note="Serving Zurich & surrounding cantons"
-        backgroundImage="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80"
+        backgroundImages={servicesHeroImages}
       />
       <main>
         <ServicesGrid />
+        <hr className="section-separator" />
         <HowItWorks />
+        <hr className="section-separator" />
         <ServicesCTA />
       </main>
     </Layout>

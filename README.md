@@ -1,41 +1,25 @@
-# Website
+# Gather & Glow Website
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Marketing website for **Gather & Glow**, a Zurich-based, woman-owned event studio.
+The site is built with [Docusaurus](https://docusaurus.io/) and deployed via **Cloudflare Pages** from this GitHub repository.
 
-## Installation
+---
+
+## Tech Stack
+
+- [Docusaurus 3](https://docusaurus.io/) (React, TypeScript)
+- Yarn package manager
+- Cloudflare Pages (CI/CD + hosting)
+- GitHub (source of truth, main branch)
+
+---
+
+## Prerequisites
+
+- **Node.js** ≥ 18
+- **Yarn** ≥ 1.22
+
+Install dependencies once:
 
 ```bash
 yarn
-```
-
-## Local Development
-
-```bash
-yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
-
-```bash
-yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-Using SSH:
-
-```bash
-USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
