@@ -49,23 +49,28 @@ const config: Config = {
   themeConfig: {
     // Social sharing image (update when you have a proper OG image)
     image: 'img/social-card.jpg',
-    colorMode: {
-      respectPrefersColorScheme: true,
-    },
-    navbar: {
-      title: 'Gather & Glow',
-      logo: {
-        alt: 'Gather & Glow Logo',
-        src: 'img/logo.svg', // placeholder; update when you have the final logo
-      },
-      items: [
-        {to: '/', label: 'Home', position: 'left'},
-        {to: '/services', label: 'Services', position: 'left'},
-        {to: '/about', label: 'About', position: 'left'},
-        {to: '/contact', label: 'Contact', position: 'left'},
-        // Language switcher and external links can be added later
-      ],
-    },
+   colorMode: {
+  defaultMode: 'light',
+  respectPrefersColorScheme: false,
+  disableSwitch: true,
+},
+ navbar: {
+  title: 'Gather & Glow',
+  logo: {
+    alt: 'Gather & Glow Logo',
+    src: 'img/logo.svg',
+  },
+  items: [
+    // LEFT SIDE OF LOGO
+    { to: '/', label: 'Home', position: 'left' },
+    { to: '/services', label: 'Services', position: 'left' },
+
+    // RIGHT SIDE OF LOGO
+    { to: '/about', label: 'About', position: 'right' },
+    { to: '/contact', label: 'Contact', position: 'right' },
+  ],
+},
+
     footer: {
       style: 'dark',
       links: [
