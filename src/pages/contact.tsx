@@ -244,6 +244,13 @@ function ContactFormSection() {
 }
 
 export default function ContactPage() {
+  const handleContactScroll = React.useCallback(() => {
+    const target = document.getElementById('contact-form');
+    if (target) {
+      target.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
+  }, []);
+
   return (
     <Layout
       title="Contact - Gather & Glow"
@@ -260,7 +267,8 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Tell us about your next gathering - we&apos;ll take care of the rest."
         subtitle="Share a few details and we&apos;ll send ideas, timelines, and next steps within two business days."
-        cta={{label: 'Start the conversation', to: '#contact-form'}}
+        cta={{label: 'Start the conversation', to: '/contact'}}
+        ctaOnClick={handleContactScroll}
         note="Zurich + surrounding cantons"
         backgroundImages={contactHeroImages}
         cycleIntervalMs={5000}
@@ -269,6 +277,7 @@ export default function ContactPage() {
       <main>
         <ContactIntro />
         <hr className="section-separator" />
+        <a id="contact-form" />
         <ContactFormSection />
       </main>
     </Layout>

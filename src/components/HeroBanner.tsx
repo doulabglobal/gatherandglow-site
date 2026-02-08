@@ -10,6 +10,7 @@ type HeroBannerProps = {
     label: string;
     to: string;
   };
+  ctaOnClick?: () => void;
   note?: string;
   backgroundImage?: string;
   backgroundImages?: string[];
@@ -23,6 +24,7 @@ export default function HeroBanner({
   title,
   subtitle,
   cta,
+  ctaOnClick,
   note,
   backgroundImage,
   backgroundImages,
@@ -93,9 +95,19 @@ export default function HeroBanner({
           {(cta || note) && (
             <div className="hero__cta">
               {cta && (
-                <Link className="button button--secondary button--lg" to={cta.to}>
-                  {cta.label}
-                </Link>
+                ctaOnClick ? (
+                  <button
+                    type="button"
+                    className="button button--secondary button--lg"
+                    onClick={ctaOnClick}
+                  >
+                    {cta.label}
+                  </button>
+                ) : (
+                  <Link className="button button--secondary button--lg" to={cta.to}>
+                    {cta.label}
+                  </Link>
+                )
               )}
               {note && <span className="hero__note">{note}</span>}
             </div>
