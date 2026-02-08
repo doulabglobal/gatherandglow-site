@@ -13,6 +13,8 @@ type HeroBannerProps = {
   note?: string;
   backgroundImage?: string;
   backgroundImages?: string[];
+  cycleIntervalMs?: number;
+  respectReducedMotion?: boolean;
   className?: string;
 };
 
@@ -24,6 +26,8 @@ export default function HeroBanner({
   note,
   backgroundImage,
   backgroundImages,
+  cycleIntervalMs = 6000,
+  respectReducedMotion = true,
   className,
 }: HeroBannerProps) {
   const images = React.useMemo(() => {
@@ -45,41 +49,21 @@ export default function HeroBanner({
       return undefined;
     }
 
-    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (motionQuery.matches) {
-      return undefined;
+    if (respectReducedMotion) {
+      const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (motionQuery.matches) {
+        return undefined;
+      }
     }
 
-    let intervalId: number | undefined;
-    let idleHandle: number | undefined;
-    let timeoutHandle: number | undefined;
-
-    const startInterval = () => {
-      intervalId = window.setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % images.length);
-      }, 6000);
-    };
-
-    if ('requestIdleCallback' in window) {
-      idleHandle = window.requestIdleCallback(() => {
-        startInterval();
-      }, {timeout: 2000});
-    } else {
-      timeoutHandle = window.setTimeout(startInterval, 1200);
-    }
+    const intervalId = window.setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, cycleIntervalMs);
 
     return () => {
-      if (idleHandle && 'cancelIdleCallback' in window) {
-        window.cancelIdleCallback(idleHandle);
-      }
-      if (timeoutHandle) {
-        window.clearTimeout(timeoutHandle);
-      }
-      if (intervalId) {
-        window.clearInterval(intervalId);
-      }
+      window.clearInterval(intervalId);
     };
-  }, [images]);
+  }, [images, cycleIntervalMs, respectReducedMotion]);
 
   const currentBackground = images[currentIndex];
   const heroImageLoading = currentIndex === 0 ? 'eager' : 'lazy';

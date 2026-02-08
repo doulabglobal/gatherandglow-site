@@ -4,11 +4,10 @@ import HeroBanner from '../components/HeroBanner';
 import Seo from '../components/Seo';
 
 const contactHeroImages = [
-  'https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1600&q=80',
-  'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1600&q=80',
-  'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80',
-  'https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=1600&q=80',
-  'https://images.unsplash.com/photo-1485217988980-11786ced9454?auto=format&fit=crop&w=1600&q=80',
+  '/img/Contact_Karusell_1.jpg',
+  '/img/Contact_Karusell_2.jpg',
+  '/img/Contact_Karusell_3.jpg',
+  '/img/Contact_Karusell_4.jpg',
 ];
 
 const CONTACT_ENDPOINT = 'https://formsubmit.co/ajax/info@gatherandglow.ch';
@@ -254,7 +253,7 @@ export default function ContactPage() {
         title="Contact Gather & Glow"
         description="Ready to plan your next gathering? Contact Gather & Glow in Zurich for bespoke styling and thoughtful event details."
         slug="/contact"
-        image="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1600&q=80"
+        image="/img/Contact_Karusell_1.jpg"
         keywords={['contact Gather & Glow', 'Zurich events contact', 'book event stylist']}
       />
       <HeroBanner
@@ -264,6 +263,8 @@ export default function ContactPage() {
         cta={{label: 'Start the conversation', to: '#contact-form'}}
         note="Zurich + surrounding cantons"
         backgroundImages={contactHeroImages}
+        cycleIntervalMs={5000}
+        respectReducedMotion={false}
       />
       <main>
         <ContactIntro />
