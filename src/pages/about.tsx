@@ -38,7 +38,7 @@ const founders = [
 
 function AboutIntro() {
   return (
-    <section className="margin-vert--xl about-hero">
+    <section className="margin-vert--xl about-hero about-hero--match-height">
       <div className="container">
         <div className="row">
           <div className="col col--6">
@@ -57,11 +57,17 @@ function AboutIntro() {
             </p>
           </div>
           <div className="col col--6 about-hero__image">
-            <img
-              src="/img/about_about_GatherAndGlow.jpg"
-              alt="Gather & Glow founders working together"
-              loading="lazy"
-            />
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Gather & Glow founders working together"
+            >
+              <source src="/img/about/about-hero-01.webm" type="video/webm" />
+              <source src="/img/about/about-hero-01.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>

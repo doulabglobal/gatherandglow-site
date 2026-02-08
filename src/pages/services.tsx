@@ -15,6 +15,7 @@ const servicesHeroImages = [
 const services = [
   {
     title: 'Charcuterie Boards',
+    slug: '/services/charcuterie-boards',
     summary:
       'Beautifully styled charcuterie and grazing boards for 5, 10, 15 or more guests - built with seasonal ingredients and elegant presentation.',
     details: [
@@ -26,6 +27,7 @@ const services = [
   },
   {
     title: 'Seasonal Bars & Stations',
+    slug: '/services/seasonal-bars-stations',
     summary:
       'Add a little magic to your next event with themed bars and stations that delight guests of all ages.',
     details: [
@@ -37,6 +39,7 @@ const services = [
   },
   {
     title: 'Tablescaping at Home',
+    slug: '/services/tablescaping-at-home',
     summary:
       'We transform your dining table into an experience - styled for the season or the occasion, and always uniquely yours.',
     details: [
@@ -98,6 +101,9 @@ function ServicesGrid() {
                   <p className="gg-card__tag">
                     <strong>Ideal for:</strong> {service.ideal}
                   </p>
+                  <Link className="button button--outline button--sm" to={service.slug}>
+                    View service
+                  </Link>
                 </div>
               </div>
             </div>

@@ -40,6 +40,25 @@ export default function HeroBanner({
   }, [backgroundImage, backgroundImages]);
 
   const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [lastVideoIndex, setLastVideoIndex] = React.useState<number | null>(null);
+
+  const currentBackground = images[currentIndex];
+  const heroImageLoading = currentIndex === 0 ? 'eager' : 'lazy';
+  const heroImagePriority = currentIndex === 0 ? 'high' : 'low';
+  const zoomOut = Boolean(currentBackground && currentBackground.includes('?zoom=out'));
+  const backgroundSrc = currentBackground ? currentBackground.split('?')[0] : '';
+  const isVideo = Boolean(backgroundSrc && /\.(mp4|webm)$/i.test(backgroundSrc));
+  const webmSource = backgroundSrc && backgroundSrc.endsWith('.mp4')
+    ? backgroundSrc.replace(/\.mp4$/i, '.webm')
+    : undefined;
+
+  const handleVideoEnded = React.useCallback(() => {
+    if (images.length <= 1) {
+      return;
+    }
+    setLastVideoIndex(currentIndex);
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  }, [images.length, currentIndex]);
 
   React.useEffect(() => {
     if (images.length <= 1) {
@@ -58,33 +77,64 @@ export default function HeroBanner({
       }
     }
 
-    const intervalId = window.setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, cycleIntervalMs);
+    if (isVideo) {
+      return undefined;
+    }
+
+    let intervalId: number | undefined;
+    let timeoutId: number | undefined;
+
+    if (lastVideoIndex !== null && currentIndex !== lastVideoIndex) {
+      timeoutId = window.setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % images.length);
+        setLastVideoIndex(null);
+      }, cycleIntervalMs);
+    } else {
+      intervalId = window.setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % images.length);
+      }, cycleIntervalMs);
+    }
 
     return () => {
-      window.clearInterval(intervalId);
+      if (intervalId) {
+        window.clearInterval(intervalId);
+      }
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+      }
     };
-  }, [images, cycleIntervalMs, respectReducedMotion]);
-
-  const currentBackground = images[currentIndex];
-  const heroImageLoading = currentIndex === 0 ? 'eager' : 'lazy';
-  const heroImagePriority = currentIndex === 0 ? 'high' : 'low';
-
+  }, [images, cycleIntervalMs, respectReducedMotion, isVideo, currentIndex, lastVideoIndex]);
   return (
     <header className={clsx('hero hero--primary hero--lp', className)}>
       {currentBackground && (
         <div className="hero--lp__image" aria-hidden="true">
-          <picture>
-            <img
-              src={currentBackground}
-              alt=""
-              decoding="async"
-              loading={heroImageLoading}
-              fetchPriority={heroImagePriority}
-              sizes="100vw"
-            />
-          </picture>
+          {isVideo ? (
+            <video
+              className="hero--lp__video"
+              autoPlay
+              muted
+              playsInline
+              preload="metadata"
+              onEnded={handleVideoEnded}
+              key={currentBackground}
+            >
+              {webmSource && <source src={webmSource} type="video/webm" />}
+              <source src={backgroundSrc} type="video/mp4" />
+            </video>
+          ) : (
+            <picture>
+              <img
+                src={backgroundSrc}
+                alt=""
+                decoding="async"
+                loading={heroImageLoading}
+                fetchPriority={heroImagePriority}
+                sizes="100vw"
+                className={zoomOut ? 'hero--lp__image--zoom-out' : undefined}
+                key={currentBackground}
+              />
+            </picture>
+          )}
         </div>
       )}
       <div className="container">

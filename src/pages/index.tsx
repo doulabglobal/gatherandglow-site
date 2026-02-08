@@ -5,11 +5,10 @@ import HeroBanner from '../components/HeroBanner';
 import Seo from '../components/Seo';
 
 const homeHeroImages = [
-  '/img/hero_index.jpg',
-  '/img/hero_index_02.jpg',
-  '/img/hero_index_03.jpg',
-  '/img/hero_index_04.jpg',
-  '/img/hero_index_05.jpg',
+  '/img/home/home-hero-01.mp4',
+  '/img/home/home-hero-02.jpg',
+  '/img/home/home-hero-03.jpg',
+  '/img/home/home-hero-04.jpg',
 ];
 
 export default function Home() {
@@ -33,72 +32,85 @@ export default function Home() {
         cta={{label: 'Plan your gathering - effortlessly', to: '/contact'}}
         note="15+ years curating elevated moments"
         backgroundImages={homeHeroImages}
+        cycleIntervalMs={5000}
+        respectReducedMotion={false}
       />
 
       <main>
         {/* === SERVICES SECTION === */}
         <section className="container home-section">
-          <h2 className="text--center">Our Services</h2>
+          <h2 className="text--center">Featured services</h2>
           <p className="text--center">
             Discover the art of effortless gatherings. Our curated services bring a touch of
             modern elegance to your everyday moments - designed with care, creativity, and heart.
           </p>
+          <div className="text--center">
+            <Link className="button button--outline button--sm" to="/services">
+              All services
+            </Link>
+          </div>
 
           <div className="row" style={{ marginTop: '2.5rem' }}>
             <div className="col col--4">
-              <div className="gg-card">
+              <div className="gg-card gg-card--home">
                 <img
-                  src="/img/charcuterie_borard.jpg"
+                  src="/img/home/charcuterie-home.jpg"
                   alt="Charcuterie Boards"
                   className="gg-card__img"
                   loading="lazy"
                 />
-                <h3>Charcuterie Boards</h3>
-                <p>
-                  Beautifully styled spreads for 5, 10, 15 or more guests - with seasonal
-                  ingredients and elegant presentation.
-                </p>
-                <Link className="button button--outline button--sm" to="/services">
-                  Explore services
-                </Link>
+                <div className="gg-card__body">
+                  <h3>Charcuterie Boards</h3>
+                  <p>
+                    Beautifully styled spreads for 5, 10, 15 or more guests - with seasonal
+                    ingredients and elegant presentation.
+                  </p>
+                  <Link className="button button--outline button--sm" to="/services/charcuterie-boards">
+                    View service
+                  </Link>
+                </div>
               </div>
             </div>
 
             <div className="col col--4">
-              <div className="gg-card">
+              <div className="gg-card gg-card--home">
                 <img
-                  src="/img/seasonal_bar.jpg"
+                  src="/img/home/seasonal-bars-home.jpg"
                   alt="Seasonal Bars & Stations"
                   className="gg-card__img"
                   loading="lazy"
                 />
-                <h3>Seasonal Bars & Stations</h3>
-                <p>
-                  Add a little magic to your next event - from hot chocolate bars to floral
-                  lemonade stations, designed to delight.
-                </p>
-                <Link className="button button--outline button--sm" to="/services">
-                  Explore services
-                </Link>
+                <div className="gg-card__body">
+                  <h3>Seasonal Bars & Stations</h3>
+                  <p>
+                    Add a little magic to your next event - from hot chocolate bars to floral
+                    lemonade stations, designed to delight.
+                  </p>
+                  <Link className="button button--outline button--sm" to="/services/seasonal-bars-stations">
+                    View service
+                  </Link>
+                </div>
               </div>
             </div>
 
             <div className="col col--4">
-              <div className="gg-card">
+              <div className="gg-card gg-card--home">
                 <img
-                  src="/img/tablescaping_home.jpg"
+                  src="/img/home/tablescaping-home.jpg"
                   alt="Tablescaping at Home"
                   className="gg-card__img"
                   loading="lazy"
                 />
-                <h3>Tablescaping at Home</h3>
-                <p>
-                  Transform your dining table into an experience - styled for the season or
-                  special occasion, intimate and uniquely yours.
-                </p>
-                <Link className="button button--outline button--sm" to="/services">
-                  Explore services
-                </Link>
+                <div className="gg-card__body">
+                  <h3>Tablescaping at Home</h3>
+                  <p>
+                    Transform your dining table into an experience - styled for the season or
+                    special occasion, intimate and uniquely yours.
+                  </p>
+                  <Link className="button button--outline button--sm" to="/services/tablescaping-at-home">
+                    View service
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
