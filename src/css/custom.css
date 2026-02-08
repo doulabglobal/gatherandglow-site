@@ -51,6 +51,7 @@
 
   --ifm-spacing-horizontal: 1.5rem;
   --ifm-line-height-base: 1.7;
+  --gg-gallery-card-min-height: 540px;
 }
 
 /* Force everything into a light background */
@@ -746,15 +747,21 @@ section[style*='var(--ifm-color-emphasis-0)'] {
   row-gap: 2.5rem;
 }
 
+.gallery-grid .col {
+  display: flex;
+}
+
 .gallery-card {
   background: #ffffff;
   border-radius: 1.25rem;
   border: 1px solid rgba(57, 63, 74, 0.06);
   box-shadow: 0 25px 50px rgba(57, 63, 74, 0.07);
   height: 100%;
+  min-height: var(--gg-gallery-card-min-height);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  width: 100%;
 }
 
 .gallery-card__image img {
@@ -825,5 +832,15 @@ section[style*='var(--ifm-color-emphasis-0)'] {
 
   .about-hero__image {
     margin-top: 2rem;
+  }
+
+  .gallery-card {
+    min-height: 500px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .gallery-card {
+    min-height: 460px;
   }
 }

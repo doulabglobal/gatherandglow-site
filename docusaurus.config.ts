@@ -47,7 +47,7 @@ const config: Config = {
 
   themeConfig: {
     // Social sharing image (update when you have a proper OG image)
-    image: 'img/social-card.jpg',
+    image: 'img/hero_index.jpg',
     metadata: [
       {name: 'description', content: 'Gather & Glow is a Zurich-based, woman-owned event studio delivering intimate gatherings with modern styling.'},
       {name: 'keywords', content: 'Gather and Glow, Zurich events, bespoke tablescapes, charcuterie boards, seasonal gatherings'},
