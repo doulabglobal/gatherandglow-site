@@ -13,13 +13,40 @@ const galleryHeroImages = [
 
 const galleryEvents = [
   {
-    title: 'Autumn Glow Dinner',
-    slug: 'autumn-glow-dinner',
+    title: 'Burgundy Birthday Vibes',
+    slug: 'burgundy-birthday-vibes',
     date: 'October 2025',
+    location: 'Zug, Switzerland',
+    summary:
+      'A cozy autumn birthday apéro in rich burgundy tones, featuring fresh fruit, charcuterie boards, and a sweet little candy bar.',
+    image: '/img/gallery/burgundy-birthday-vibes/Burgundy_Birthday_Vibes_1.jpg',
+  },
+  {
+    title: 'Friendsgiving',
+    slug: 'friendsgiving',
+    date: 'November 2025',
+    location: 'Eglisau, Switzerland',
+    summary:
+      'An elegant Friendsgiving table in warm autumn hues, bringing friends together to celebrate connection and meaningful moments.',
+    image: '/img/gallery/friendsgiving/Friendsgiving_1.jpg',
+  },
+  {
+    title: 'Trending Burgundy Elegance',
+    slug: 'trending-burgundy-elegance',
+    date: 'November 2025',
+    location: 'Kloten, Switzerland',
+    summary:
+      'An elegant at-home dinner table with friends, featuring the trending burgundy color and a rich display of fruits for a luxurious and inviting ambiance.',
+    image: '/img/gallery/trending-burgundy-elegance/Trending_Burgundy_Elegance_1.jpg',
+  },
+  {
+    title: 'Wild One Jungle Party',
+    slug: 'wild-one-jungle-party',
+    date: 'December 2025',
     location: 'Zurich, Switzerland',
     summary:
-      'A cozy harvest-inspired dinner party with layered textiles, warm candlelight, and curated seasonal bites for 18 guests.',
-    image: 'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=1200&q=80',
+      'A playful yet gentle jungle-themed first birthday celebration with lush greenery, friendly wild animals, and a child-friendly design in soft green tones.',
+    image: '/img/gallery/wild-one-jungle-party/Wild_One_Jungle_Party_1.jpg',
   },
 ];
 
