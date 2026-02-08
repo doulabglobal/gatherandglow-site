@@ -5,11 +5,10 @@ import HeroBanner from '../../components/HeroBanner';
 import Seo from '../../components/Seo';
 
 const galleryHeroImages = [
-  'https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1600&q=80',
-  'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80',
-  'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80&sat=-40',
-  'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80&exp=-10',
-  'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=1600&q=80',
+  '/img/Gallery_Karussell_1.jpg',
+  '/img/Gallery_Karussell_2.jpg',
+  '/img/Gallery_Karussell_3.jpg',
+  '/img/Gallery_Karussell_4.jpg',
 ];
 
 const galleryEvents = [
@@ -34,7 +33,7 @@ export default function GalleryIndex() {
         title="Gallery | Gather & Glow"
         description="Browse Gather & Glow event galleries featuring intimate dinners, seasonal parties, and bespoke styling."
         slug="/gallery"
-        image="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1600&q=80"
+        image="/img/Gallery_Karussell_1.jpg"
         keywords={['gather and glow gallery', 'event portfolio', 'zurich gatherings']}
       />
       <HeroBanner
@@ -43,6 +42,8 @@ export default function GalleryIndex() {
         subtitle="Explore highlights from our favorite events — layered textures, thoughtful tables, and glowing details."
         note="More galleries coming soon"
         backgroundImages={galleryHeroImages}
+        cycleIntervalMs={5000}
+        respectReducedMotion={false}
       />
       <main className="container margin-vert--xl">
         <div className="row margin-bottom--lg">
