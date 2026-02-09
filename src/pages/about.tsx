@@ -18,21 +18,21 @@ const founders = [
     title: 'The Culinary Explorer',
     bio: 'Our creative force in the kitchen. Vanessa always has a new recipe up her sleeve and a vision for how food can tell a story. She believes every gathering deserves flavours that delight as much as the setting does.',
     image:
-      'https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?auto=format&fit=crop&w=900&q=80',
+      '/img/about/Vanessa.jpg',
   },
   {
     name: 'Christina',
     title: 'The Organizer',
     bio: 'The steady hand and clear mind behind the scenes. Christina keeps us grounded and focused, making sure every detail flows seamlessly - from concept to celebration.',
     image:
-      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=900&q=80',
+      '/img/about/Christina.jpg',
   },
   {
     name: 'Luz',
     title: 'The Dreamer',
     bio: 'Always imagining the next enchanting setup, Luz sees the magic in the small details - the lighting, the colours, the textures - that turn ordinary spaces into glowing experiences.',
     image:
-      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80',
+      '/img/about/Luz.jpg',
   },
 ];
 
