@@ -21,19 +21,19 @@ const founders = [
       '/img/about/Vanessa.jpg',
   },
   {
-    name: 'Christina',
-    title: 'The Organizer',
-    bio: 'The steady hand and clear mind behind the scenes. Christina keeps us grounded and focused, making sure every detail flows seamlessly - from concept to celebration.',
-    image:
-      '/img/about/Christina.jpg',
-  },
-  {
     name: 'Luz',
     title: 'The Dreamer',
     bio: 'Always imagining the next enchanting setup, Luz sees the magic in the small details - the lighting, the colours, the textures - that turn ordinary spaces into glowing experiences.',
     image:
       '/img/about/Luz.jpg',
   },
+  {
+    name: 'Christina',
+    title: 'The Organizer',
+    bio: 'The steady hand and clear mind behind the scenes. Christina keeps us grounded and focused, making sure every detail flows seamlessly - from concept to celebration.',
+    image:
+      '/img/about/Christina.jpg',
+  }
 ];
 
 function AboutIntro() {
@@ -210,4 +210,3 @@ export default function AboutPage() {
     </Layout>
   );
 }
-

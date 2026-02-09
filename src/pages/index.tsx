@@ -9,6 +9,7 @@ const homeHeroImages = [
   '/img/home/home-hero-02.jpg',
   '/img/home/home-hero-03.jpg',
   '/img/home/home-hero-04.jpg',
+  '/img/home/home-hero-05.mp4',
 ];
 
 export default function Home() {
